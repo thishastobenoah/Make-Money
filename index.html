@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-     #coin-container {
+     #coin-container 
+     {
       display: flex;
       flex-wrap: wrap;
-    }
+     }
 
-    .coin {
+    .coin 
+    {
       margin: 5px;
       padding: 10px;
       border: 1px solid #ccc;
@@ -29,11 +31,11 @@
     <input type="number" id="coinCount" required>
 
     <label for="coinType">Type of Coin:</label>
-    <select id="coinType" required>
-      <option value="Penny">Penny</option>
-      <option value="Nickel">Nickel</option>
-      <option value="Dime">Dime</option>
-      <option value="Quarter">Quarter</option>
+    <select id="coinType">
+      <option>Penny</option>
+      <option>Nickel</option>
+      <option>Dime</option>
+      <option>Quarter</option>
     </select>
 
     <button type="submit">Add Coins</button>
@@ -42,25 +44,27 @@
   <div id="coin-container"></div>
 
   <script>
-    document.getElementById('coinForm').addEventListener('submit', function (event) {
-  event.preventDefault();
+    document.getElementById('coinForm').addEventListener('submit', function (event) 
+    {
+        event.preventDefault();
 
-  const count = document.getElementById('coinCount').value;
-  const type = document.getElementById('coinType').value;
+        const count = document.getElementById('coinCount').value;
+        const type = document.getElementById('coinType').value;
 
-  Array.from({ length: count }, () => createCoin(type));
-});
+        Array.from({ length: count }, () => createCoin(type));
+    });
 
-function createCoin(type) {
-  const coinContainer = document.getElementById('coin-container');
-  const coin = document.createElement('div');
-  coin.className = 'coin';
-  coin.textContent = type;
+    function createCoin(type) 
+    {
+        const coinContainer = document.getElementById('coin-container');
+        const coin = document.createElement('div');
+        coin.className = 'coin';
+        coin.textContent = type;
 
-  coin.addEventListener('click', () => coinContainer.removeChild(coin));
+        coin.addEventListener('click', () => coinContainer.removeChild(coin));
 
-  coinContainer.appendChild(coin);
-}
+        coinContainer.appendChild(coin);
+    }
   </script>
 
 </body>
